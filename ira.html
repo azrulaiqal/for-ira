@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show of Love</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+        
+        body {
+            background-color: pink;
+            font-family: 'Dancing Script', cursive;
+            text-align: center;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin-top: 50px;
+            padding: 0 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .note {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+        @keyframes popup {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .popup {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: white;
+            color: pink;
+            border-radius: 10px;
+            width: auto;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Dancing Script', cursive;
+        }
+        .music-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: pink;
+            background-color: white;
+            border: 2px solid pink;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .music-button:hover {
+            background-color: #ffcccb;
+        }
+        @media (max-width: 600px) {
+            .container {
+                margin-top: 20px;
+            }
+            .note {
+                font-size: 1em;
+            }
+            .music-button {
+                font-size: 1em;
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" onmouseover="showPopup()">
+        <h1>❤️ Show of Love ❤️</h1>
+        <img src="ira.jpg" alt="Love Image">
+        <p class="note">jangan sedih sedih tauu cayanggg hehehehe sabar jap jpgi ada wishhh</p>
+        <div id="popup" class="popup">
+            <p>My wish for you: <span id="wish">
+                HIII I MAKE THIS WEBSITE FOR YOU JUST TO BAGITAHUU JANGAN SEDIH II TAUUU SENTIASA HAPPY DAN SENYUM JE DALAM HIDUP NIIII SAYA KAN PENGHIBUR KAMUUUU HAHAHAHAHAH MUAH ILY</span></p>
+        </div>
+        <button class="music-button" onclick="playMusic()">tekan cini</button>
+    </div>
+    <audio id="background-music" src="sempurna.mp3" loop></audio>
+    <script>
+        let popupShown = false;
+        function showPopup() {
+            if (!popupShown) {
+                var popup = document.getElementById('popup');
+                popup.style.display = 'flex';
+                popup.style.animation = 'popup 0.5s ease-in-out';
+                popupShown = true;
+            }
+        }
+        function playMusic() {
+            var audio = document.getElementById('background-music');
+            audio.play().catch(error => {
+                console.log("User interaction needed to play audio.");
+            });
+        }
+    </script>
+</body>
+</html>
